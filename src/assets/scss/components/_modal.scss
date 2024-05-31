@@ -1,0 +1,31 @@
+.theme-modal {
+    .modal-content {
+        padding: 15px;
+    }
+
+    .modal-body{
+        max-height: 740px;
+        overflow-y: auto;
+    }
+
+    .header {
+        padding: 16px;
+        .box {
+            width: 35px;
+            height: 35px;
+            min-width: 35px;
+            background-color: $color-bg-grey;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+
+    &.logout-modal,
+    &.delete-modal{
+        .modal-body{
+            padding: 0 16px 8px 16px;
+        }
+    }
+}

@@ -1,0 +1,72 @@
+.btn-solid {
+    border: 1px solid transparent;
+    min-width: 100px;
+
+    &:hover {
+        border: 1px solid transparent;
+    }
+
+    &:focus-visible {
+        box-shadow: none;
+    }
+
+    &.btn-purple {
+        background-color: $color-purple;
+        
+        &:active {
+            background-color: $color-purple;
+            box-shadow: none;
+            border: 1px solid transparent;
+        }
+    }
+
+    &.btn-red {
+        background-color: $color-red;
+        
+        &:active {
+            background-color: $color-red;
+            box-shadow: none;
+            border: 1px solid transparent;
+        }
+    }
+}
+
+.btn-outline {
+    background-color: transparent;
+    min-width: 100px;
+
+    &:hover {
+        background-color: transparent;
+    }
+
+    &:focus-visible {
+        box-shadow: none;
+    }
+
+    &.btn-grey {
+        background-color: transparent;
+        border: 1px solid $color-light-grey;
+        color: $color-black;
+
+        &:active {
+            background-color: transparent;
+            box-shadow: none;
+            border: 1px solid $color-light-grey;
+            color: $color-black;
+        }
+    }
+
+    &.btn-purple {
+        background-color: transparent;
+        border: 1px solid $color-purple;
+        color: $color-purple;
+
+        &:active {
+            background-color: transparent;
+            box-shadow: none;
+            border: 1px solid $color-purple;
+            color: $color-purple;
+
+        }
+    }
+}

@@ -1,0 +1,22 @@
+.dashboard-layout {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+
+    .sidebar-wrapper {
+        background-color: $color-white;
+        height: 100%;
+        width: 280px;
+        box-shadow: 0 0.125rem 0.25rem rgba(165, 163, 174, 0.3);
+    }
+
+    .dasboard-content-wrapper {
+        width: calc(100vw - 280px);
+        background-color: $color-bg-grey;
+        height: 100%;
+        overflow-y: auto;
+        padding: 10px 0;
+    }
+}
+

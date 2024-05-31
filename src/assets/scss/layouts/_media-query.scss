@@ -1,0 +1,30 @@
+@media screen and (max-width: 576px) {
+    .auth-layout {
+        padding: 0;
+
+        .form-wrapper {
+            padding: 20px;
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .dashboard-layout {
+        .sidebar-wrapper {
+            position: absolute;
+            top: 0;
+            left: -100%;
+            z-index: 2;
+            transition: 0.3s ease;
+            overflow: hidden;
+
+            &.active {
+                left: 0;
+            }
+        }
+
+        .dasboard-content-wrapper {
+            width: 100%;
+        }
+    }
+}

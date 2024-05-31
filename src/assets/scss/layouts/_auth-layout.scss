@@ -1,0 +1,24 @@
+.auth-layout {
+    height: 100vh;
+    padding: 20px;
+
+    .auth-img-wrapper {
+        border-radius: 18px;
+        background-color: $color-bg-grey;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        img {
+            height: 65%;
+        }
+    }
+
+    .form-wrapper {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 48px;
+    }
+}

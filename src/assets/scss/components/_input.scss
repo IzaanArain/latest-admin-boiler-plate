@@ -1,0 +1,203 @@
+.form-control {
+    padding: 7px 14px;
+    border: 1px solid $color-light-grey;
+
+    &::placeholder {
+        color: $color-light-grey;
+        font-weight: 300;
+    }
+
+    &:hover,
+    &:focus {
+        box-shadow: none;
+        border: 1px solid $color-light-grey;
+    }
+}
+
+.form-label {
+    color: $color-black;
+}
+
+.password-input {
+    position: relative;
+
+    .eye-icon {
+        position: absolute;
+        top: 39px;
+        right: 10px;
+    }
+}
+
+.search-input {
+    position: relative;
+
+    .theme-input {
+        margin-bottom: 0 !important;
+    }
+
+    .form-label {
+        display: none;
+    }
+
+    .icon {
+        position: absolute;
+        top: 11px;
+        right: 15px;
+    }
+}
+
+.react-select-container {
+    font-family: "Public Sans", sans-serif;
+
+    .react-select__single-value {
+        color: $color-dark;
+    }
+
+    .react-select__placeholder {
+        color: $color-light-grey;
+        font-weight: 300;
+        font-size: 15px;
+    }
+
+    .react-select__control {
+        border: 1px solid $color-light-grey;
+        font-size: 15px;
+        border-radius: 6px;
+    }
+
+    .react-select__value-container {
+        padding: 0px 14px;
+    }
+
+    .react-select__input-container {
+        font-size: 15px;
+    }
+}
+
+.theme-date-picker {
+    .react-datepicker__header {
+        background-color: $color-purple;
+
+        .react-datepicker__day-name,
+        .react-datepicker__current-month {
+            color: $color-white;
+        }
+    }
+
+    .react-datepicker__navigation-icon {
+        &::before {
+            border-color: $color-white;
+            top: 13px;
+        }
+    }
+
+    .react-datepicker__month {
+        .react-datepicker__day--keyboard-selected {
+            background-color: $color-light-purple;
+        }
+
+        .react-datepicker__day--selected {
+            background-color: $color-purple;
+        }
+    }
+
+    .react-datepicker-wrapper {
+        width: 100%;
+
+        .react-datepicker__input-container {
+            input {
+                padding: 7px 14px;
+                font-family: "Public Sans", sans-serif;
+                font-size: 15px;
+                width: 100%;
+                border: 1px solid $color-light-grey;
+                border-radius: 6px;
+                color: $color-dark;
+
+                &:focus-within {
+                    outline: none;
+                }
+
+                &::placeholder {
+                    color: $color-light-grey;
+                    font-weight: 300;
+                    font-size: 15px;
+                }
+            }
+        }
+    }
+}
+
+.theme-file-uploader {
+    .wrapper {
+        label {
+            background-color: $color-light-purple;
+            box-shadow: 0 0.25rem 1.125rem rgba(75, 70, 92, 0.1);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 60px 30px;
+            display: block;
+            width: 100%;
+        }
+
+        .icon {
+            color: $color-purple;
+            font-size: 40px;
+        }
+
+        label {
+            color: $color-black;
+        }
+    }
+
+    .show-files {
+        .box {
+            background-color: $color-light-purple;
+            border-radius: 6px;
+            padding: 12px;
+        }
+
+        .icon-box {
+            display: flex;
+            align-items: center;
+
+            .icon {
+                font-size: 16px;
+                color: $color-black;
+            }
+        }
+
+        span {
+            width: 250px;
+            display: block;
+            color: $color-black;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+    }
+}
+
+.theme-chart {
+    .wrapper {
+        background: $color-white;
+        border-radius: 6px;
+        padding: 25px;
+        box-shadow: 0 0.25rem 1.125rem rgba(75, 70, 92, 0.1);
+    }
+}
+
+.theme-text-editor{
+    .jodit-status-bar__item{
+        .jodit-status-bar-link{
+            display: none;
+        }
+    }
+
+    .jodit-workplace{
+        min-height: calc(100vh - 370px) !important;
+    }
+}
