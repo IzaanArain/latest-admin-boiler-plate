@@ -59,10 +59,11 @@ export const apiUrls = {
     signout: "/admin/signout",
     changePassword: "/admin/changepassword",
     tcpp: "/admin/TcPp",
-    getTcpp: "/admin/getTcPp",
+    getTcpp: "/api/getTcPp",
     getAllUsers: '/admin/getAllUsers',
     blockUnblockUser: "/admin/blockunblock",
     deleteUser: "/admin/deleteAccount",
+    dasboard:"/admin/dashboard",
 }
 
 

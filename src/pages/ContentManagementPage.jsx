@@ -5,7 +5,7 @@ import ThemeTextEditor from '../components/input/ThemeTextEditor'
 import { useForm } from 'react-hook-form'
 import { useLazyGetPageQuery, useUpdatePageMutation } from '../store/apis/contentApi'
 import ThemeSpinner from '../components/general/ThemeSpinner'
-import { successMsg } from '../constants/msgs'
+import { successMsg,errorMsg } from '../constants/msgs'
 
 const ContentManagementPage = () => {
     const { register, control, handleSubmit, watch, setValue, formState: { errors } } = useForm({ mode: 'onChange' })
@@ -17,7 +17,6 @@ const ContentManagementPage = () => {
     const onSubmit = async (formData) => {
         const db_slug = slug?.split("-").join("_")
         const { data, error } = await updatePage({ [db_slug]: formData.editor })
-
         if (data) {
             successMsg(data.message)
             setOnUpdate(onUpdate + 1)
@@ -30,7 +29,9 @@ const ContentManagementPage = () => {
     useEffect(() => {
         const getPageDetail = async () => {
             const db_slug = slug?.split("-").join("_")
+            console.log(db_slug)
             const { data } = await getPage(slug)
+            console.log("data",data)
             setValue("editor", data?.tcAndPp[db_slug])
         }
 

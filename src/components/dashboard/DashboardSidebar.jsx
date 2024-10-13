@@ -31,7 +31,7 @@ const DashboardSidebar = ({ closeSidebar }) => {
                 <div className="header d-flex align-items-center justify-content-between">
                     <div className="logo d-flex align-items-center">
                         <LogoSvg />
-                        <h4 className='ms-3'><b className='text-black'>Vuexy</b></h4>
+                        <h4 className='ms-3'><b className="text-white">Sary Stars</b></h4>
                     </div>
 
                     <IoClose size={22} className='text-black d-block d-md-none' onClick={closeSidebar} />
@@ -57,40 +57,46 @@ const DashboardSidebar = ({ closeSidebar }) => {
                             </NavLink>
                         </li>
 
-                        <li className='mb-3'>
-                            <div
-                                className={`nested cursor ${nestedActive('/admin/page')} `}
-                                onClick={() => setOpen(!open)}
-                                aria-controls="content-management"
-                                aria-expanded={open}
-                            >
-                                <div className="icon-wrapper">
-                                    <RiFileList2Line className='icon' />
-                                </div>
-                                <div className="d-flex justify-content-between align-items-center w-100">
-                                    <span>Content Management</span>
-                                    <HiChevronDown />
-                                </div>
-                            </div>
+                       <li className="mb-3">
+                <div
+                  className={`nested cursor ${nestedActive("/admin/page")} `}
+                  onClick={() => setOpen(!open)}
+                  aria-controls="content-management"
+                  aria-expanded={open}
+                >
+                  <div className="icon-wrapper">
+                    <RiFileList2Line className="icon" />
+                  </div>
+                  <div className="d-flex justify-content-between align-items-center w-100">
+                    <span>Content Management</span>
+                    <HiChevronDown />
+                  </div>
+                </div>
 
-                            <Collapse in={open}>
-                                <ul id="content-management" className='custom-collapse'>
-                                    <li className='mb-3'>
-                                        <NavLink to="/admin/page/terms-and-conditions" onClick={closeSidebar}>
-                                            <MdOutlineCircle className='icon me-2' />
-                                            <span>Terms and Conditions</span>
-                                        </NavLink>
-                                    </li>
+                <Collapse in={open}>
+                  <ul id="content-management" className="custom-collapse">
+                    <li className="mb-3">
+                      <NavLink
+                        to="/admin/page/terms-and-conditions"
+                        onClick={closeSidebar}
+                      >
+                        <MdOutlineCircle className="icon me-2" />
+                        <span>Terms and Conditions</span>
+                      </NavLink>
+                    </li>
 
-                                    <li className='mb-3'>
-                                        <NavLink to="/admin/page/privacy-policy" onClick={closeSidebar}>
-                                            <MdOutlineCircle className='icon me-2' />
-                                            <span>Privacy Policy</span>
-                                        </NavLink>
-                                    </li>
-                                </ul>
-                            </Collapse>
-                        </li>
+                    <li className="mb-3">
+                      <NavLink
+                        to="/admin/page/privacy-policy"
+                        onClick={closeSidebar}
+                      >
+                        <MdOutlineCircle className="icon me-2" />
+                        <span>Privacy Policy</span>
+                      </NavLink>
+                    </li>
+                  </ul>
+                </Collapse>
+              </li>
 
                         <li className='mb-3'>
                             <div className='nested cursor' onClick={() => setIsLogoutModalOpen(true)}>

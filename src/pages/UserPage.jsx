@@ -9,7 +9,7 @@ import { RiParentFill } from 'react-icons/ri';
 import { FaChildReaching } from 'react-icons/fa6';
 import { MdInsertPageBreak } from 'react-icons/md';
 import StatsCard from '../components/dashboard/StatsCard';
-import { useDeleteUserMutation, useGetAllUsersQuery } from '../store/apis/userApi';
+import { useDashbordQuery, useDeleteUserMutation, useGetAllUsersQuery } from '../store/apis/userApi';
 import { setPage, setPaginatedData, setPerPage } from '../store/slices/userSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { getFilteredData } from '../utils/helper';
@@ -23,6 +23,7 @@ const UserPage = () => {
     const { register, control, handleSubmit, watch, formState: { errors } } = useForm({ mode: 'onChange' })
     const dispatch = useDispatch()
     const searchText = watch('searchText')
+    const {isLoading:isStatsLoading, data:userStats} = useDashbordQuery();
     const [stats, setStats] = useState([
         {
             title: "Total User",
@@ -36,19 +37,24 @@ const UserPage = () => {
             color: "bg-yellow",
             icon: <RiParentFill className='icon' />,
         },
-        {
-            title: "Deleted User",
-            count: "2,200",
-            color: "bg-blue",
-            icon: <FaChildReaching className='icon' />,
-        },
-        {
-            title: "Inactive User",
-            count: "2",
-            color: "bg-red",
-            icon: <MdInsertPageBreak className='icon' />,
-        },
     ])
+    useEffect(()=>{
+        setStats([
+            {
+                title: "Total User",
+                count: userStats?.data?.usersCount || 0,
+                color: "bg-purple",
+                icon: <LuUserCircle2 className='icon' />,
+            },
+            {
+                title: "Blocked User",
+                count: userStats?.data?.usersblocked || 0,
+                color: "bg-yellow",
+                icon: <RiParentFill className='icon' />,
+            },
+        ]);
+    },[isStatsLoading]);
+
     const [isOpen, setIsOpen] = useState({ type: null, open: false })
     const { isLoading, data } = useGetAllUsersQuery()
     const [deleteUser, { isLoading: isDeleteLoading }] = useDeleteUserMutation()
@@ -77,7 +83,7 @@ const UserPage = () => {
 
                     {
                         stats?.map((item, index) => (
-                            <Col key={index} xs={12} sm={6} md={6} lg={4} xl={3} className='mb-3'>
+                            <Col key={index} xs={12} sm={6} md={6} lg={6} xl={6} className='mb-3'>
                                 <StatsCard data={item} />
                             </Col>
                         ))
@@ -86,7 +92,7 @@ const UserPage = () => {
                     <Col xs={12} className='mt-2'>
                         <div className="table-wrapper">
                             <Row className='justify-content-between'>
-                                <Col sm={6} lg={5} xl={4}>
+                                <Col sm={12} lg={12} xl={12}>
                                     <div className="search-input">
                                         <ThemeInput
                                             name="searchText"
@@ -99,10 +105,10 @@ const UserPage = () => {
                                     </div>
 
                                 </Col>
-
+{/* 
                                 <Col sm={4} lg={3} xl={2} className='text-end mt-3 mt-sm-0'>
                                     <Button className='w-100 h-100 btn-solid btn-purple'>Add User</Button>
-                                </Col>
+                                </Col> */}
                             </Row>
 
                             <Row className='mt-3'>

@@ -16,6 +16,14 @@ export const userApi = apiSlice
                 }),
                 providesTags: ['user'],
             }),
+            dashbord: builder.query({
+                query: (params) => ({
+                  url: `${apiUrls.dasboard}`,
+                  method: "GET",
+                  params: params,
+                }),
+                providesTags: ["user"],
+              }),
             blockUnblockUser: builder.mutation({
                 query: (id) => ({
                     url: `${apiUrls.blockUnblockUser}/${id}`,
@@ -37,4 +45,5 @@ export const {
     useGetAllUsersQuery,
     useBlockUnblockUserMutation,
     useDeleteUserMutation,
+    useDashbordQuery,
 } = userApi

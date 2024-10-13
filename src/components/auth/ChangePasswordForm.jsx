@@ -5,7 +5,7 @@ import { useForm } from 'react-hook-form'
 import { validation, validationText } from '../../utils/app-constants'
 import { Form, Button } from 'react-bootstrap'
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
-import { useChangePasswordMutation } from '../../store/apis/AuthApi'
+import { useChangePasswordMutation } from '../../store/apis/authApi'
 import ThemeSpinner from '../general/ThemeSpinner'
 import { errorMsg, successMsg } from '../../constants/msgs'
 
@@ -15,7 +15,7 @@ const ChangePasswordForm = () => {
     const [showCurrentPassword, setShowCurrentPassword] = useState(false)
     const [showNewPassword, setShowNewPassword] = useState(false)
     const [showConformNewPassword, setShowConformNewPassword] = useState(false)
-    const newPassword = watch('new_password')
+    const newPassword = watch('newPassword')
 
     const onSubmit = async (formData) => {
         const { data, error } = await changePassword(formData)
@@ -34,7 +34,7 @@ const ChangePasswordForm = () => {
                 <Form onSubmit={handleSubmit(onSubmit)}>
                     <div className="password-input">
                         <ThemeInput
-                            name="current_password"
+                            name="currentPassword"
                             control={control}
                             errors={errors}
                             rules={{
@@ -64,7 +64,7 @@ const ChangePasswordForm = () => {
 
                     <div className="password-input">
                         <ThemeInput
-                            name="new_password"
+                            name="newPassword"
                             control={control}
                             errors={errors}
                             rules={{
@@ -94,7 +94,7 @@ const ChangePasswordForm = () => {
 
                     <div className="password-input">
                         <ThemeInput
-                            name="confirm_new_password"
+                            name="confirmNewPassword"
                             control={control}
                             errors={errors}
                             rules={{

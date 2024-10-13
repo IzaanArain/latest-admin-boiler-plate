@@ -26,17 +26,13 @@ const UserDetails = () => {
                 <p className='ms-2'>{selectedData?.phone || '-'}</p>
             </div>
             <div className='d-flex align-items-center mb-3'>
-                <p><b>Role: </b></p>
-                <p className='ms-2'>{selectedData?.role == 1 ? "Parent" : "Child"}</p>
-            </div>
-            <div className='d-flex align-items-center mb-3'>
                 <p><b>Blocked: </b></p>
                 <p className='ms-2'>{selectedData?.blocked == false ? "No" : 'Yes'}</p>
             </div>
-            <div className='d-flex align-items-center mb-3'>
+            {/* <div className='d-flex align-items-center mb-3'>
                 <p><b>Verified: </b></p>
                 <p className='ms-2'>{selectedData?.is_verified == false ? "No" : 'Yes'}</p>
-            </div>
+            </div> */}
         </div>
     )
 }

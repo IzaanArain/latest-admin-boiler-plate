@@ -38,7 +38,7 @@
                     border-radius: 6px;
                     padding: 10px 13px;
                     transition: 0.3s linear;
-                    color: $color-black;
+                    color: $color-white;
 
                     span {
                         font-size: 15px;
@@ -73,6 +73,7 @@
 .dashboard-header {
     padding: 12px 35px;
     background-color: $color-white;
+    background: $gradient-secondary-bg;
     border-radius: 6px;
     box-shadow: 0 0.125rem 0.25rem rgba(165, 163, 174, 0.3);
     display: flex;

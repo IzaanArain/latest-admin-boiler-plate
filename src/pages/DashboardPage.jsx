@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState,useEffect } from 'react'
 import { Col, Row } from 'react-bootstrap'
 import StatsCard from '../components/dashboard/StatsCard'
 import { LuUserCircle2 } from "react-icons/lu";
@@ -7,8 +7,9 @@ import { FaChildReaching } from "react-icons/fa6";
 import { MdInsertPageBreak } from "react-icons/md";
 import ThemeChart from '../components/general/ThemeChart';
 import faker from 'faker'
-
+import { useDashbordQuery } from "../store/apis/userApi";
 const DashboardPage = () => {
+    const { isLoading: isStatsLoading, data: userStats } = useDashbordQuery();
     const [data, setData] = useState([
         {
             title: "Total User",
@@ -17,42 +18,91 @@ const DashboardPage = () => {
             icon: <LuUserCircle2 className='icon' />,
         },
         {
-            title: "Total Parent",
-            count: "1,200",
+            title: "Blocked User",
+            count: "40",
             color: "bg-yellow",
-            icon: <RiParentFill className='icon' />,
-        },
-        {
-            title: "Total Child",
-            count: "2,200",
-            color: "bg-blue",
-            icon: <FaChildReaching className='icon' />,
-        },
-        {
-            title: "Total Page",
-            count: "2",
-            color: "bg-red",
-            icon: <MdInsertPageBreak className='icon' />,
-        },
+            icon: <RiParentFill className="icon" />,
+          },
     ])
-    const [labels, setLabels] = useState(['January', 'February', 'March', 'April', 'May', 'June', 'July'])
+    const [labels, setLabels] = useState([
+        "Jan",
+        "Feb",
+        "Mar",
+        "Apr",
+        "May",
+        "Jun",
+        "Jul",
+        "Aug",
+        "Sep",
+        "Oct",
+        "Nov",
+        "Dec",
+    ]);
     const [chartData, setChartData] = useState({
         labels: labels,
         datasets: [
-            {
-                label: 'Dataset 1',
-                data: labels.map(() => faker.datatype.number({ min: -1000, max: 1000 })),
-                borderColor: 'rgb(255, 99, 132)',
-                backgroundColor: 'rgba(255, 99, 132, 0.5)',
-            },
-            {
-                label: 'Dataset 2',
-                data: labels.map(() => faker.datatype.number({ min: -1000, max: 1000 })),
-                borderColor: 'rgb(53, 162, 235)',
-                backgroundColor: 'rgba(53, 162, 235, 0.5)',
-            },
+          {
+            label: "Dataset 1",
+            data: labels.map(() =>
+              faker.datatype.number({ min: -1000, max: 1000 })
+            ),
+            borderColor: "rgb(255, 99, 132)",
+            backgroundColor: "rgba(255, 99, 132, 0.5)",
+          },
         ],
-    })
+    });
+    useEffect(() => {
+        setData([
+          {
+            title: "Total User",
+            count: userStats?.data?.usersCount || 0,
+            color: "bg-purple",
+            icon: <LuUserCircle2 className="icon" />,
+          },
+          {
+            title: "Blocked User",
+            count: userStats?.data?.usersblocked || 0,
+            color: "bg-yellow",
+            icon: <RiParentFill className="icon" />,
+          },
+        //   {
+        //     title: "Deleted User",
+        //     count: userStats?.data?.usersDeleted || 0,
+        //     color: "bg-blue",
+        //     icon: <FaChildReaching className="icon" />,
+        //   },
+        ]);
+    }, [isStatsLoading]);
+    useEffect(() => {
+        setChartData({
+          labels: labels,
+          datasets: [
+            {
+              label: "users",
+              data: userStats?.data?.monthly_users.map((item) =>
+                labels.includes(item.month) ? item.users : 0
+              ),
+              borderColor: "rgb(255, 99, 132)",
+              // backgroundColor: 'rgba(255, 99, 132, 0.5)',
+              backgroundColor: [
+                "rgb(255, 99, 132)", // January
+                "rgb(54, 162, 235)", // February
+                "rgb(255, 205, 86)", // March
+                "rgb(75, 192, 192)", // April
+                "rgb(153, 102, 255)", // May
+                "rgb(255, 159, 64)", // June
+                "rgb(255, 99, 132)", // July
+                "rgb(54, 162, 235)", // August
+                "rgb(255, 205, 86)", // September
+                "rgb(75, 192, 192)", // October
+                "rgb(153, 102, 255)", // November
+                "rgb(255, 159, 64)", // December
+              ],
+            },
+          ],
+        });
+    }, [isStatsLoading]);
+    
 
     return (
         <div className='pages dashboard-page'>
@@ -62,7 +112,7 @@ const DashboardPage = () => {
                 </Col>
                 {
                     data?.map((item, index) => (
-                        <Col key={index} xs={12} sm={6} md={6} lg={4} xl={3} className='mb-3'>
+                        <Col key={index} xs={12} sm={6} md={6} lg={6} xl={6} className='mb-3'>
                             <StatsCard data={item} />
                         </Col>
                     ))
@@ -75,7 +125,7 @@ const DashboardPage = () => {
                 </Col>
 
                 <Col xs={6}>
-                    <ThemeChart type="line" data={chartData} />
+                    <ThemeChart type="bar" data={chartData} />
                 </Col>
             </Row>
         </div>

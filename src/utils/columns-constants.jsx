@@ -35,12 +35,6 @@ export const userColumns = (setIsOpen, dispatch) => {
                 selector: row => row?.phone || "-",
             },
             {
-                key: 'role',
-                name: 'Role',
-                sortable: true,
-                selector: row => row?.role == 1 ? "Parent" : "Child",
-            },
-            {
                 key: 'block',
                 name: 'Blocked',
                 sortable: true,
@@ -65,13 +59,13 @@ export const userColumns = (setIsOpen, dispatch) => {
                                 dispatch(setSelectedData(row))
                             }}
                         />
-                        <RiDeleteBin7Line
+                        {/* <RiDeleteBin7Line
                             className='icon'
                             onClick={() => {
                                 setIsOpen({ type: modalType.delete, open: true })
                                 dispatch(setSelectedData(row))
                             }}
-                        />
+                        /> */}
                     </div>
                 ),
             },
