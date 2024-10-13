@@ -105,9 +105,9 @@ const SigninForm = () => {
                         </span>
                     </div>
 
-                    <div className="text-end">
+                    {/* <div className="text-end">
                         <span className='text-purple cursor'>Forgot Password?</span>
-                    </div>
+                    </div> */}
 
                     <Button type="submit" disabled={isLoading} className="btn-solid btn-purple w-100 mt-4">
                         {isLoading ? <ThemeSpinner/> : ' Sign in'}
