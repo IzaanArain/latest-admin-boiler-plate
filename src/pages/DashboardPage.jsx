@@ -13,13 +13,13 @@ const DashboardPage = () => {
     const [data, setData] = useState([
         {
             title: "Total User",
-            count: "1,000",
+            count: "0",
             color: "bg-purple",
             icon: <LuUserCircle2 className='icon' />,
         },
         {
             title: "Blocked User",
-            count: "40",
+            count: "0",
             color: "bg-yellow",
             icon: <RiParentFill className="icon" />,
           },
