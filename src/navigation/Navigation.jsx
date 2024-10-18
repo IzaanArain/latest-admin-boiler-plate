@@ -17,7 +17,7 @@ const Navigation = () => {
             <Routes>
                 {/* PUBLIC ROUTES */}
                 <Route element={<PublicRoutes />}>
-                    <Route path="/" element={<AuthLayout children={<SigninForm />} />} />
+                    <Route path="/admin" element={<AuthLayout children={<SigninForm />} />} />
                 </Route>
 
                 {/* PROTECTED ROUTES */}
@@ -30,7 +30,7 @@ const Navigation = () => {
 
 
                 {/* KEEP IT AT THE END */}
-                <Route path="*" element={<NotFound />} />
+                <Route path="/admin/*" element={<NotFound />} />
             </Routes>
         </BrowserRouter>
     )

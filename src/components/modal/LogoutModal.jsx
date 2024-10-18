@@ -18,7 +18,7 @@ const LogoutModal = ({ isOpen, setIsOpen }) => {
             successMsg(data.message)
             EmptyLocalStorage()
             setIsOpen(false)
-            navigate('/')
+            navigate('/admin ')
         }
         else {
             errorMsg(error.data.message)

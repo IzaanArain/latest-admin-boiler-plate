@@ -7,7 +7,7 @@ const ProtectedRoutes = () => {
 
     return (
         <>
-            {token ?  <Outlet/> : <Navigate to="/" />}
+            {token ?  <Outlet/> : <Navigate to="/admin" />}
         </>
     )
 }

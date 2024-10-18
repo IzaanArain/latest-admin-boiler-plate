@@ -55,15 +55,15 @@ export const modalType = {
 }
 
 export const apiUrls = {
-    signin: '/admin/signin',
-    signout: "/admin/signout",
-    changePassword: "/admin/changepassword",
-    tcpp: "/admin/TcPp",
-    getTcpp: "/api/getTcPp",
-    getAllUsers: '/admin/getAllUsers',
-    blockUnblockUser: "/admin/blockunblock",
-    deleteUser: "/admin/deleteAccount",
-    dasboard:"/admin/dashboard",
+    signin: '/api/admin/signin',
+    signout: "/api/admin/signout",
+    changePassword: "/api/admin/changepassword",
+    tcpp: "/api/admin/TcPp",
+    getTcpp: "/api/api/getTcPp",
+    getAllUsers: '/api/admin/getAllUsers',
+    blockUnblockUser: "/api/admin/blockunblock",
+    deleteUser: "/api/admin/deleteAccount",
+    dasboard:"/api/admin/dashboard",
 }
 
 
