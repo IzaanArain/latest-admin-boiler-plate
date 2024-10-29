@@ -64,6 +64,8 @@ export const apiUrls = {
     blockUnblockUser: "/api/admin/blockunblock",
     deleteUser: "/api/admin/deleteAccount",
     dasboard:"/api/admin/dashboard",
+    getAllOffers:'/api/offers',
+    offers:"/api/admin/offers",
 }
 
 

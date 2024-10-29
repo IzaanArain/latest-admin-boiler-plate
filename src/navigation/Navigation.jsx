@@ -10,6 +10,7 @@ import ChangePasswordPage from '../pages/ChangePasswordPage'
 import ContentManagementPage from '../pages/ContentManagementPage'
 import PublicRoutes from '../navigation/PublicRoutes'
 import ProtectedRoutes from '../navigation/ProtectedRoutes'
+import Offers from "../pages/Offers"
 
 const Navigation = () => {
     return (
@@ -26,6 +27,7 @@ const Navigation = () => {
                     <Route path="/admin/user" element={<DashboardLayout children={<UserPage />} />} />
                     <Route path="/admin/change-password" element={<DashboardLayout children={<ChangePasswordPage />} />} />
                     <Route path="/admin/page/:slug" element={<DashboardLayout children={<ContentManagementPage />} />} />
+                    <Route path="/admin/offers" element={<DashboardLayout children={<Offers />} />} />
                 </Route>
 
 

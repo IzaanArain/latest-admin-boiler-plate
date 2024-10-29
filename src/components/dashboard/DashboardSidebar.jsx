@@ -10,6 +10,7 @@ import { RiLogoutBoxRLine } from "react-icons/ri";
 import { Collapse } from 'react-bootstrap';
 import { MdOutlineCircle } from "react-icons/md";
 import LogoutModal from '../modal/LogoutModal';
+import { BiSolidOffer } from "react-icons/bi";
 
 const DashboardSidebar = ({ closeSidebar }) => {
     const [open, setOpen] = useState(false)
@@ -54,6 +55,15 @@ const DashboardSidebar = ({ closeSidebar }) => {
                                     <AiOutlineUser className='icon' />
                                 </div>
                                 <span>User</span>
+                            </NavLink>
+                        </li>
+
+                        <li className='mb-3'>
+                            <NavLink to="/admin/offers" onClick={closeSidebar}>
+                                <div className="icon-wrapper">
+                                    <BiSolidOffer className='icon' />
+                                </div>
+                                <span>Offers</span>
                             </NavLink>
                         </li>
 

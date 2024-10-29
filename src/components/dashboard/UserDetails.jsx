@@ -10,12 +10,12 @@ const UserDetails = () => {
         <div className='details user-detail'>
             <div className='mb-3'>
                 <div className="img-wrapper">
-                    <img src={`${baseUrl}/${selectedData?.image_name}`} alt="" onError={(e) => e.target.src = ProfilePlaceholder} />
+                    <img src={`${selectedData?.profileImage}`} alt="" onError={(e) => e.target.src = ProfilePlaceholder} />
                 </div>
             </div>
             <div className='d-flex align-items-center mb-3'>
                 <p><b>Name: </b></p>
-                <p className='ms-2'>{selectedData?.fullname || '-'}</p>
+                <p className='ms-2'>{selectedData?.name || '-'}</p>
             </div>
             <div className='d-flex align-items-center mb-3'>
                 <p><b>Email: </b></p>
